@@ -17,6 +17,10 @@ Finding the right website design can be overwhelming. This repository presents v
 
 ```
 website_examples/
+├── basic/               # Unstyled semantic HTML template
+│   └── basic.html
+├── minimalist/          # Minimalist styled example
+│   └── index.html
 ├── docs/
 │   └── style/           # Design themes and prompts
 │       ├── minimalist.md
@@ -27,9 +31,15 @@ website_examples/
 │       ├── maximalism.md
 │       ├── swiss-design.md
 │       └── organic.md
-├── examples/            # Example implementations (coming soon)
 └── README.md
 ```
+
+## Example Implementations
+
+| Style | Preview |
+|-------|---------|
+| [Basic HTML](basic/basic.html) | Unstyled semantic HTML template |
+| [Minimalist](minimalist/index.html) | Clean, whitespace-focused design |
 
 ## Available Themes
 
