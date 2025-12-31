@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Base template for landing pages">
+    <title>Basic Landing Page Template</title>
+    <style>
+        /* ========================================
+           CSS RESET & BASE STYLES
+           ======================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            /* Color Variables - Override these for theming */
+            --color-primary: #2563eb;
+            --color-primary-dark: #1d4ed8;
+            --color-secondary: #64748b;
+            --color-accent: #f59e0b;
+            --color-background: #ffffff;
+            --color-surface: #f8fafc;
+            --color-text: #1e293b;
+            --color-text-muted: #64748b;
+            --color-border: #e2e8f0;
+
+            /* Spacing Variables */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+
+            /* Typography Variables */
+            --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 1rem;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+            /* Container Width */
+            --container-max-width: 1200px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-background);
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========================================
+           LAYOUT UTILITIES
+           ======================================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .section {
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .section--alt {
+            background-color: var(--color-surface);
+        }
+
+        /* ========================================
+           COMPONENT: HEADER / NAVIGATION
+           ======================================== */
+        .header {
+            background-color: var(--color-background);
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md) var(--spacing-lg);
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+        }
+
+        .header__logo {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        .header__nav {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .header__nav-link {
+            color: var(--color-text);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header__nav-link:hover {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .header__cta {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .header__cta:hover {
+            background-color: var(--color-primary-dark);
+            text-decoration: none;
+        }
+
+        /* ========================================
+           COMPONENT: HERO SECTION
+           ======================================== */
+        .hero {
+            padding: var(--spacing-3xl) 0;
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        .hero__subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ========================================
+           COMPONENT: BUTTONS
+           ======================================== */
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: var(--font-size-base);
+        }
+
+        .btn--primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn--primary:hover {
+            background-color: var(--color-primary-dark);
+            text-decoration: none;
+        }
+
+        .btn--secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn--secondary:hover {
+            background-color: var(--color-primary);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* ========================================
+           COMPONENT: FEATURES GRID
+           ======================================== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .feature-card {
+            padding: var(--spacing-xl);
+            background-color: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .feature-card__icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-md);
+            background-color: var(--color-surface);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-2xl);
+        }
+
+        .feature-card__title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-card__description {
+            color: var(--color-text-muted);
+            font-size: var(--font-size-sm);
+        }
+
+        /* ========================================
+           COMPONENT: SECTION HEADERS
+           ======================================== */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section-header__title {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-header__subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========================================
+           COMPONENT: DATA TABLE
+           ======================================== */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--color-background);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table th,
+        .table td {
+            padding: var(--spacing-md) var(--spacing-lg);
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .table th {
+            background-color: var(--color-surface);
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .table tbody tr:hover {
+            background-color: var(--color-surface);
+        }
+
+        .table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ========================================
+           COMPONENT: PRICING CARDS
+           ======================================== */
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .pricing-card {
+            padding: var(--spacing-xl);
+            background-color: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .pricing-card--featured {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card__name {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .pricing-card__price {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .pricing-card__price span {
+            font-size: var(--font-size-base);
+            color: var(--color-text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-card__features {
+            list-style: none;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .pricing-card__features li {
+            padding: var(--spacing-sm) 0;
+            color: var(--color-text-muted);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .pricing-card__features li:last-child {
+            border-bottom: none;
+        }
+
+        /* ========================================
+           COMPONENT: TESTIMONIALS
+           ======================================== */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .testimonial-card {
+            padding: var(--spacing-xl);
+            background-color: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+        }
+
+        .testimonial-card__quote {
+            font-size: var(--font-size-lg);
+            font-style: italic;
+            margin-bottom: var(--spacing-lg);
+            color: var(--color-text);
+        }
+
+        .testimonial-card__author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .testimonial-card__avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            background-color: var(--color-surface);
+        }
+
+        .testimonial-card__name {
+            font-weight: 600;
+        }
+
+        .testimonial-card__role {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+        }
+
+        /* ========================================
+           COMPONENT: CALL TO ACTION
+           ======================================== */
+        .cta {
+            text-align: center;
+            padding: var(--spacing-3xl);
+            background-color: var(--color-primary);
+            border-radius: var(--radius-lg);
+            color: white;
+        }
+
+        .cta__title {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta__description {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-xl);
+            opacity: 0.9;
+        }
+
+        .cta .btn--secondary {
+            background-color: white;
+            color: var(--color-primary);
+            border-color: white;
+        }
+
+        .cta .btn--secondary:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        /* ========================================
+           COMPONENT: FOOTER
+           ======================================== */
+        .footer {
+            background-color: var(--color-text);
+            color: white;
+            padding: var(--spacing-3xl) 0 var(--spacing-xl);
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .footer__column-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer__links {
+            list-style: none;
+        }
+
+        .footer__links li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer__links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.2s;
+        }
+
+        .footer__links a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer__bottom {
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: var(--font-size-sm);
+        }
+
+        /* ========================================
+           COMPONENT: FORM ELEMENTS
+           ======================================== */
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-weight: 500;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* ========================================
+           COMPONENT: CARDS (Generic)
+           ======================================== */
+        .card {
+            background-color: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .card__image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--color-surface);
+            object-fit: cover;
+        }
+
+        .card__body {
+            padding: var(--spacing-lg);
+        }
+
+        .card__title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card__text {
+            color: var(--color-text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* ========================================
+           COMPONENT: BADGES & TAGS
+           ======================================== */
+        .badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            border-radius: var(--radius-full);
+            background-color: var(--color-surface);
+            color: var(--color-text-muted);
+        }
+
+        .badge--primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .badge--accent {
+            background-color: var(--color-accent);
+            color: white;
+        }
+
+        /* ========================================
+           RESPONSIVE ADJUSTMENTS
+           ======================================== */
+        @media (max-width: 768px) {
+            .header__nav {
+                display: none;
+            }
+
+            .hero__title {
+                font-size: var(--font-size-3xl);
+            }
+
+            .hero__subtitle {
+                font-size: var(--font-size-base);
+            }
+
+            .section-header__title {
+                font-size: var(--font-size-2xl);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================
+         HEADER / NAVIGATION
+         ======================================== -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="#" class="header__logo">Brand</a>
+            <nav class="header__nav">
+                <a href="#features" class="header__nav-link">Features</a>
+                <a href="#pricing" class="header__nav-link">Pricing</a>
+                <a href="#testimonials" class="header__nav-link">Testimonials</a>
+                <a href="#contact" class="header__nav-link">Contact</a>
+            </nav>
+            <a href="#" class="header__cta">Get Started</a>
+        </div>
+    </header>
+
+    <!-- ========================================
+         HERO SECTION
+         ======================================== -->
+    <section class="hero container">
+        <h1 class="hero__title">Your Main Headline Goes Here</h1>
+        <p class="hero__subtitle">
+            A compelling subtitle that explains your value proposition in one or two sentences.
+            Make it clear what problem you solve for your customers.
+        </p>
+        <div class="hero__actions">
+            <a href="#" class="btn btn--primary">Primary Action</a>
+            <a href="#" class="btn btn--secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FEATURES SECTION
+         ======================================== -->
+    <section id="features" class="section section--alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header__title">Features</h2>
+                <p class="section-header__subtitle">
+                    Discover the key features that make our product stand out from the competition.
+                </p>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-card__icon">&#9733;</div>
+                    <h3 class="feature-card__title">Feature One</h3>
+                    <p class="feature-card__description">
+                        Brief description of this feature and the benefit it provides to users.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">&#9889;</div>
+                    <h3 class="feature-card__title">Feature Two</h3>
+                    <p class="feature-card__description">
+                        Brief description of this feature and the benefit it provides to users.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">&#9881;</div>
+                    <h3 class="feature-card__title">Feature Three</h3>
+                    <p class="feature-card__description">
+                        Brief description of this feature and the benefit it provides to users.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         DATA TABLE SECTION
+         ======================================== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header__title">Comparison Table</h2>
+                <p class="section-header__subtitle">
+                    Compare our different options at a glance.
+                </p>
+            </div>
+            <div class="table-wrapper">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Basic</th>
+                            <th>Professional</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Users</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Storage</td>
+                            <td>5 GB</td>
+                            <td>50 GB</td>
+                            <td>500 GB</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Email</td>
+                            <td>Priority Email</td>
+                            <td>24/7 Phone</td>
+                        </tr>
+                        <tr>
+                            <td>API Access</td>
+                            <td>&#10005;</td>
+                            <td>&#10003;</td>
+                            <td>&#10003;</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Branding</td>
+                            <td>&#10005;</td>
+                            <td>&#10005;</td>
+                            <td>&#10003;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PRICING SECTION
+         ======================================== -->
+    <section id="pricing" class="section section--alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header__title">Pricing Plans</h2>
+                <p class="section-header__subtitle">
+                    Choose the plan that works best for you.
+                </p>
+            </div>
+            <div class="pricing">
+                <div class="pricing-card">
+                    <h3 class="pricing-card__name">Basic</h3>
+                    <div class="pricing-card__price">$9<span>/month</span></div>
+                    <ul class="pricing-card__features">
+                        <li>1 User</li>
+                        <li>5 GB Storage</li>
+                        <li>Email Support</li>
+                        <li>Basic Features</li>
+                    </ul>
+                    <a href="#" class="btn btn--secondary">Get Started</a>
+                </div>
+                <div class="pricing-card pricing-card--featured">
+                    <span class="badge badge--primary">Most Popular</span>
+                    <h3 class="pricing-card__name">Professional</h3>
+                    <div class="pricing-card__price">$29<span>/month</span></div>
+                    <ul class="pricing-card__features">
+                        <li>5 Users</li>
+                        <li>50 GB Storage</li>
+                        <li>Priority Support</li>
+                        <li>All Features</li>
+                    </ul>
+                    <a href="#" class="btn btn--primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="pricing-card__name">Enterprise</h3>
+                    <div class="pricing-card__price">$99<span>/month</span></div>
+                    <ul class="pricing-card__features">
+                        <li>Unlimited Users</li>
+                        <li>500 GB Storage</li>
+                        <li>24/7 Support</li>
+                        <li>Custom Features</li>
+                    </ul>
+                    <a href="#" class="btn btn--secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         TESTIMONIALS SECTION
+         ======================================== -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header__title">What Our Customers Say</h2>
+                <p class="section-header__subtitle">
+                    Hear from real customers about their experience with our product.
+                </p>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <p class="testimonial-card__quote">
+                        "This product has completely transformed how we work. The results speak for themselves."
+                    </p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar"></div>
+                        <div>
+                            <div class="testimonial-card__name">Jane Smith</div>
+                            <div class="testimonial-card__role">CEO, Company A</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-card__quote">
+                        "Excellent support team and a product that just works. Highly recommended!"
+                    </p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar"></div>
+                        <div>
+                            <div class="testimonial-card__name">John Doe</div>
+                            <div class="testimonial-card__role">CTO, Company B</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-card__quote">
+                        "We saw a 50% increase in productivity within the first month of using this tool."
+                    </p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar"></div>
+                        <div>
+                            <div class="testimonial-card__name">Sarah Johnson</div>
+                            <div class="testimonial-card__role">Director, Company C</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CALL TO ACTION SECTION
+         ======================================== -->
+    <section class="section">
+        <div class="container">
+            <div class="cta">
+                <h2 class="cta__title">Ready to Get Started?</h2>
+                <p class="cta__description">
+                    Join thousands of satisfied customers and take your business to the next level.
+                </p>
+                <a href="#" class="btn btn--secondary">Start Your Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CONTACT FORM SECTION
+         ======================================== -->
+    <section id="contact" class="section section--alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-header__title">Contact Us</h2>
+                <p class="section-header__subtitle">
+                    Have questions? We'd love to hear from you.
+                </p>
+            </div>
+            <form style="max-width: 600px; margin: 0 auto;">
+                <div class="form-group">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="subject">Subject</label>
+                    <select id="subject" class="form-select">
+                        <option value="">Select a topic</option>
+                        <option value="sales">Sales Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="message">Message</label>
+                    <textarea id="message" class="form-textarea" placeholder="Your message..."></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <h4 class="footer__column-title">Brand</h4>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">
+                        A brief description of your company and what you do.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer__column-title">Product</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__column-title">Company</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__column-title">Legal</h4>
+                    <ul class="footer__links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 Brand. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
