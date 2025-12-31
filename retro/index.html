@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Retro 80s Synthwave landing page template">
+    <title>Retro Landing Page</title>
+    <style>
+        /* Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Color Palette - 80s Synthwave */
+        :root {
+            --bg-primary: #0D0221;
+            --bg-secondary: #1A0533;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --neon-pink: #FF00FF;
+            --neon-cyan: #00FFFF;
+            --neon-orange: #FF6B35;
+            --gradient-sunset: linear-gradient(180deg, #FF6B35 0%, #FF00FF 50%, #0D0221 100%);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            background-image:
+                linear-gradient(transparent 0%, transparent 95%, rgba(0, 255, 255, 0.1) 95%),
+                linear-gradient(90deg, transparent 0%, transparent 95%, rgba(0, 255, 255, 0.1) 95%);
+            background-size: 50px 50px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--neon-cyan);
+        }
+
+        h4 { font-size: 1rem; }
+
+        p {
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        /* Scan line effect */
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 2px solid var(--neon-pink);
+        }
+
+        header .brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        nav a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        header .cta {
+            font-size: 0.875rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            color: var(--neon-cyan);
+            border: 2px solid var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 0 10px var(--neon-cyan), inset 0 0 10px transparent;
+            transition: all 0.3s ease;
+        }
+
+        header .cta:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+        }
+
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        #hero h1 {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(180deg, var(--neon-orange) 0%, var(--neon-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px var(--neon-pink));
+        }
+
+        #hero p {
+            margin: 0 auto 3rem;
+            font-size: 1.25rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--neon-pink);
+            color: var(--bg-primary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            box-shadow: 0 0 20px var(--neon-pink);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-primary);
+            box-shadow: 0 0 30px var(--neon-cyan), 0 0 60px var(--neon-cyan);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--neon-cyan);
+            font-size: 0.875rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .btn-secondary:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-primary);
+        }
+
+        /* Features Section */
+        #features {
+            background: var(--bg-secondary);
+        }
+
+        #features .container > h2 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        #features .container > p {
+            text-align: center;
+            margin: 0 auto 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature {
+            background: rgba(255, 0, 255, 0.1);
+            border: 1px solid var(--neon-pink);
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+        }
+
+        .feature:hover {
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            font-size: 0.9375rem;
+        }
+
+        /* Comparison Table Section */
+        #comparison .container > h2 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        #comparison .container > p {
+            text-align: center;
+            margin: 0 auto 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9375rem;
+        }
+
+        th, td {
+            padding: 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+        }
+
+        th {
+            font-weight: 700;
+            color: var(--neon-cyan);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: rgba(0, 255, 255, 0.1);
+        }
+
+        tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 0, 255, 0.1);
+        }
+
+        /* Pricing Section */
+        #pricing {
+            background: var(--bg-secondary);
+        }
+
+        #pricing .container > h2 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        #pricing .container > p {
+            text-align: center;
+            margin: 0 auto 4rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--neon-pink);
+            padding: 3rem 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .pricing-card .badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--neon-cyan);
+            color: var(--bg-primary);
+            font-size: 0.75rem;
+            padding: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .pricing-card.featured {
+            padding-top: 4rem;
+        }
+
+        .pricing-card h3 {
+            margin-bottom: 1rem;
+            color: var(--neon-pink);
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-shadow: none;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 0, 255, 0.2);
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        .pricing-card li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card .btn-primary,
+        .pricing-card .btn-secondary {
+            display: block;
+            text-align: center;
+        }
+
+        /* Testimonials Section */
+        #testimonials .container > h2 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        #testimonials .container > p {
+            text-align: center;
+            margin: 0 auto 4rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        blockquote {
+            font-style: normal;
+            background: rgba(255, 0, 255, 0.1);
+            border: 1px solid var(--neon-pink);
+            padding: 2rem;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 4rem;
+            color: var(--neon-pink);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        blockquote p {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        cite {
+            font-style: normal;
+            font-size: 0.875rem;
+            color: var(--neon-cyan);
+        }
+
+        /* CTA Section */
+        #cta {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--neon-pink) 200%);
+        }
+
+        #cta h2 {
+            margin-bottom: 1rem;
+        }
+
+        #cta p {
+            margin: 0 auto 2rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--bg-secondary);
+        }
+
+        #contact .container > h2 {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        #contact .container > p {
+            text-align: center;
+            margin: 0 auto 3rem;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--neon-pink);
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--neon-pink);
+            font-size: 1rem;
+            font-family: inherit;
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        select option {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--neon-pink);
+            color: var(--bg-primary);
+            border: none;
+            font-size: 0.875rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 0 20px var(--neon-pink);
+            transition: all 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--neon-cyan);
+            box-shadow: 0 0 30px var(--neon-cyan);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 2px solid var(--neon-pink);
+            padding: 4rem 0 2rem;
+            background: var(--bg-primary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9375rem;
+            margin-top: 1rem;
+        }
+
+        footer h4 {
+            margin-bottom: 1.5rem;
+            color: var(--neon-pink);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 0.75rem;
+        }
+
+        footer li a {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
+
+        footer li a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 0, 255, 0.3);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.75rem; }
+
+            nav { display: none; }
+
+            .features-grid,
+            .pricing-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <a href="#" class="brand">Brand</a>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#" class="cta">Get Started</a>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <div class="container">
+                <h1>Your Main Headline Goes Here</h1>
+                <p>
+                    A compelling subtitle that explains your value proposition in one or two sentences.
+                    Make it clear what problem you solve for your customers.
+                </p>
+                <div class="hero-actions">
+                    <a href="#" class="btn-primary">Primary Action</a>
+                    <a href="#" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section id="features">
+            <div class="container">
+                <h2>Features</h2>
+                <p>Discover the key features that make our product stand out from the competition.</p>
+
+                <div class="features-grid">
+                    <article class="feature">
+                        <h3>Feature One</h3>
+                        <p>Brief description of this feature and the benefit it provides to users.</p>
+                    </article>
+
+                    <article class="feature">
+                        <h3>Feature Two</h3>
+                        <p>Brief description of this feature and the benefit it provides to users.</p>
+                    </article>
+
+                    <article class="feature">
+                        <h3>Feature Three</h3>
+                        <p>Brief description of this feature and the benefit it provides to users.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- DATA TABLE SECTION -->
+        <section id="comparison">
+            <div class="container">
+                <h2>Comparison Table</h2>
+                <p>Compare our different options at a glance.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Basic</th>
+                            <th>Professional</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Users</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Storage</td>
+                            <td>5 GB</td>
+                            <td>50 GB</td>
+                            <td>500 GB</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Email</td>
+                            <td>Priority Email</td>
+                            <td>24/7 Phone</td>
+                        </tr>
+                        <tr>
+                            <td>API Access</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Branding</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section id="pricing">
+            <div class="container">
+                <h2>Pricing Plans</h2>
+                <p>Choose the plan that works best for you.</p>
+
+                <div class="pricing-grid">
+                    <article class="pricing-card">
+                        <h3>Basic</h3>
+                        <p class="price">$9<span>/month</span></p>
+                        <ul>
+                            <li>1 User</li>
+                            <li>5 GB Storage</li>
+                            <li>Email Support</li>
+                            <li>Basic Features</li>
+                        </ul>
+                        <a href="#" class="btn-secondary">Get Started</a>
+                    </article>
+
+                    <article class="pricing-card featured">
+                        <span class="badge">Most Popular</span>
+                        <h3>Professional</h3>
+                        <p class="price">$29<span>/month</span></p>
+                        <ul>
+                            <li>5 Users</li>
+                            <li>50 GB Storage</li>
+                            <li>Priority Support</li>
+                            <li>All Features</li>
+                        </ul>
+                        <a href="#" class="btn-primary">Get Started</a>
+                    </article>
+
+                    <article class="pricing-card">
+                        <h3>Enterprise</h3>
+                        <p class="price">$99<span>/month</span></p>
+                        <ul>
+                            <li>Unlimited Users</li>
+                            <li>500 GB Storage</li>
+                            <li>24/7 Support</li>
+                            <li>Custom Features</li>
+                        </ul>
+                        <a href="#" class="btn-secondary">Contact Sales</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials">
+            <div class="container">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from real customers about their experience with our product.</p>
+
+                <div class="testimonials-grid">
+                    <blockquote>
+                        <p>This product has completely transformed how we work. The results speak for themselves.</p>
+                        <cite>Jane Smith, CEO at Company A</cite>
+                    </blockquote>
+
+                    <blockquote>
+                        <p>Excellent support team and a product that just works. Highly recommended!</p>
+                        <cite>John Doe, CTO at Company B</cite>
+                    </blockquote>
+
+                    <blockquote>
+                        <p>We saw a 50% increase in productivity within the first month of using this tool.</p>
+                        <cite>Sarah Johnson, Director at Company C</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION SECTION -->
+        <section id="cta">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Join thousands of satisfied customers and take your business to the next level.</p>
+                <a href="#" class="btn-primary">Start Your Free Trial</a>
+            </div>
+        </section>
+
+        <!-- CONTACT FORM SECTION -->
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Have questions? We'd love to hear from you.</p>
+
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject">
+                            <option value="">Select a topic</option>
+                            <option value="sales">Sales Inquiry</option>
+                            <option value="support">Technical Support</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your message..."></textarea>
+                    </div>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>Brand</h4>
+                    <p>A brief description of your company and what you do.</p>
+                </div>
+
+                <div>
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer-bottom">&copy; 2024 Brand. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

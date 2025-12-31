@@ -21,6 +21,20 @@ website_examples/
 │   └── basic.html
 ├── minimalist/          # Minimalist styled example
 │   └── index.html
+├── brutalism/           # Brutalist styled example
+│   └── index.html
+├── swiss-design/        # Swiss Design styled example
+│   └── index.html
+├── glassmorphism/       # Glassmorphism styled example
+│   └── index.html
+├── neumorphism/         # Neumorphism styled example
+│   └── index.html
+├── retro/               # Retro 80s synthwave styled example
+│   └── index.html
+├── maximalism/          # Maximalist styled example
+│   └── index.html
+├── organic/             # Organic/Natural styled example
+│   └── index.html
 ├── docs/
 │   └── style/           # Design themes and prompts
 │       ├── minimalist.md
@@ -40,6 +54,13 @@ website_examples/
 |-------|---------|
 | [Basic HTML](basic/basic.html) | Unstyled semantic HTML template |
 | [Minimalist](minimalist/index.html) | Clean, whitespace-focused design |
+| [Brutalism](brutalism/index.html) | Raw, bold, unconventional design |
+| [Swiss Design](swiss-design/index.html) | Grid-based, typography-focused layout |
+| [Glassmorphism](glassmorphism/index.html) | Frosted glass effects with blur |
+| [Neumorphism](neumorphism/index.html) | Soft, extruded UI with shadows |
+| [Retro](retro/index.html) | 80s synthwave neon aesthetic |
+| [Maximalism](maximalism/index.html) | Rich jewel tones and bold excess |
+| [Organic](organic/index.html) | Nature-inspired with soft shapes |
 
 ## Available Themes
 
