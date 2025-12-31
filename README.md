@@ -1,54 +1,63 @@
 # Website Layout Examples
 
-A curated collection of website layouts and design patterns to help you visualize and choose the perfect style for your next project.
+A curated collection of website design themes and aesthetics to help you visualize and choose the perfect style for your next project.
+
+**[View Live Site](https://cdemeke.github.io/website_examples)**
 
 ## Purpose
 
-Finding the right website design can be overwhelming. This repository presents various website layouts organized by style and purpose, allowing you to:
+Finding the right website design can be overwhelming. This repository presents various design themes organized by aesthetic, allowing you to:
 
-- **Explore** different design approaches side by side
-- **Visualize** how your content might look in various layouts
-- **Select** a starting point that matches your vision
-- **Reference** proven design patterns and structures
+- **Explore** different design philosophies and movements
+- **Visualize** how your content might look in various aesthetics
+- **Select** a theme that matches your brand's personality
+- **Reference** prompts and color palettes for each style
 
 ## Structure
 
 ```
 website_examples/
 ├── docs/
-│   └── style/           # Prompts and descriptions for each style
+│   └── style/           # Design themes and prompts
 │       ├── minimalist.md
-│       ├── corporate.md
-│       ├── portfolio.md
-│       ├── ecommerce.md
-│       ├── blog.md
-│       ├── landing-page.md
-│       └── saas-dashboard.md
+│       ├── brutalism.md
+│       ├── glassmorphism.md
+│       ├── neumorphism.md
+│       ├── retro.md
+│       ├── maximalism.md
+│       ├── swiss-design.md
+│       └── organic.md
 ├── examples/            # Example implementations (coming soon)
 └── README.md
 ```
 
-## Available Styles
+## Available Themes
 
-| Style | Description | Best For |
+| Theme | Description | Best For |
 |-------|-------------|----------|
-| Minimalist | Clean, whitespace-focused designs | Personal sites, artists |
-| Corporate | Professional, trust-building layouts | Businesses, enterprises |
-| Portfolio | Visual-first, project showcases | Creatives, freelancers |
-| E-commerce | Product-focused, conversion-optimized | Online stores |
-| Blog | Content-rich, readable layouts | Writers, publications |
-| Landing Page | Single-focus, action-driven | Product launches, campaigns |
-| SaaS Dashboard | Data-rich, functional interfaces | Web applications |
+| Minimalist | Clean, whitespace-focused with intentional simplicity | Personal sites, luxury brands, portfolios |
+| Brutalism | Raw, bold, unconventional designs that break rules | Creative agencies, art projects, dev portfolios |
+| Glassmorphism | Frosted glass effects with transparency and blur | Modern SaaS, app landing pages, dashboards |
+| Neumorphism | Soft, extruded UI with subtle shadows | Media players, utility apps, settings pages |
+| Retro | Nostalgic designs from 70s, 80s, 90s, and Y2K eras | Entertainment, events, creative brands |
+| Maximalism | Bold excess with rich colors and visual abundance | Fashion, art, editorial, festivals |
+| Swiss Design | Grid-based, typography-focused, objective clarity | Corporate, editorial, institutions |
+| Organic | Nature-inspired with soft shapes and earth tones | Wellness, eco brands, artisan products |
 
 ## Usage
 
-1. Browse the `docs/style/` directory to find prompts for each design style
-2. Use these prompts as a starting point for AI-assisted website generation
-3. Mix and match elements from different styles to create your unique design
+1. Browse the `docs/style/` directory to explore different design themes
+2. Each file contains:
+   - Overview of the design philosophy
+   - Key characteristics
+   - Ready-to-use prompts for AI-assisted generation
+   - Color palettes with hex codes
+   - Best use cases
+3. Mix and match elements from different themes to create your unique design
 
 ## Contributing
 
-Found a layout style we're missing? Contributions are welcome! Please submit a PR with your style documentation following the existing format.
+Found a design theme we're missing? Contributions are welcome! Please submit a PR with your theme documentation following the existing format.
 
 ## License
 
