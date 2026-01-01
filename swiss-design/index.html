@@ -24,6 +24,10 @@
             --grid-line: #E0E0E0;
         }
 
+        html, body {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.5;
@@ -554,17 +558,61 @@
             color: var(--secondary);
         }
 
+        /* Table Container */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             h2 { font-size: 1.75rem; }
             #hero {
                 grid-template-columns: 1fr;
-                padding: 4rem 2rem;
+                padding: 4rem 1rem;
             }
             #hero h1 { font-size: 3rem; }
 
             nav { display: none; }
+
+            header {
+                padding: 1rem;
+            }
+
+            header .cta {
+                padding: 0.625rem 1rem;
+                font-size: 0.8125rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+                align-items: stretch;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.8125rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .pricing-card .btn-primary,
+            .pricing-card .btn-secondary {
+                padding: 0.875rem 1.5rem;
+            }
+
+            button[type="submit"] {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.8125rem;
+            }
 
             .features-grid,
             .pricing-grid,
@@ -592,14 +640,24 @@
             #cta {
                 grid-template-columns: 1fr;
                 text-align: center;
+                padding: 4rem 1rem;
             }
 
             .footer-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             section {
                 padding: 4rem 0;
+            }
+
+            table {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 0.875rem 0.5rem;
             }
         }
     </style>
@@ -666,48 +724,50 @@
                 <h2>Comparison Table</h2>
                 <p>Compare our different options at a glance.</p>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Basic</th>
-                            <th>Professional</th>
-                            <th>Enterprise</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Users</td>
-                            <td>1</td>
-                            <td>5</td>
-                            <td>Unlimited</td>
-                        </tr>
-                        <tr>
-                            <td>Storage</td>
-                            <td>5 GB</td>
-                            <td>50 GB</td>
-                            <td>500 GB</td>
-                        </tr>
-                        <tr>
-                            <td>Support</td>
-                            <td>Email</td>
-                            <td>Priority Email</td>
-                            <td>24/7 Phone</td>
-                        </tr>
-                        <tr>
-                            <td>API Access</td>
-                            <td>No</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td>Custom Branding</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>Yes</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Basic</th>
+                                <th>Professional</th>
+                                <th>Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Users</td>
+                                <td>1</td>
+                                <td>5</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Storage</td>
+                                <td>5 GB</td>
+                                <td>50 GB</td>
+                                <td>500 GB</td>
+                            </tr>
+                            <tr>
+                                <td>Support</td>
+                                <td>Email</td>
+                                <td>Priority Email</td>
+                                <td>24/7 Phone</td>
+                            </tr>
+                            <tr>
+                                <td>API Access</td>
+                                <td>No</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Custom Branding</td>
+                                <td>No</td>
+                                <td>No</td>
+                                <td>Yes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 

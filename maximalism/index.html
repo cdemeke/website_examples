@@ -28,6 +28,10 @@
             --gradient-jewel: linear-gradient(135deg, var(--ruby) 0%, var(--sapphire) 50%, var(--emerald) 100%);
         }
 
+        html, body {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
@@ -373,7 +377,8 @@
         .table-container {
             background: linear-gradient(135deg, rgba(224, 17, 95, 0.1) 0%, rgba(15, 82, 186, 0.1) 100%);
             border: 2px solid var(--ruby);
-            overflow: hidden;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         table {
@@ -776,6 +781,46 @@
 
             nav { display: none; }
 
+            header {
+                padding: 1rem;
+            }
+
+            header .cta {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.8125rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            #hero {
+                padding: 5rem 1rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 1rem 1.5rem;
+                font-size: 0.875rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .pricing-card .btn-primary,
+            .pricing-card .btn-secondary {
+                padding: 1rem 1.5rem;
+            }
+
+            button[type="submit"] {
+                padding: 1rem 1.5rem;
+                font-size: 0.875rem;
+            }
+
             .features-grid,
             .pricing-grid,
             .testimonials-grid {
@@ -787,11 +832,20 @@
             }
 
             .footer-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             section {
                 padding: 4rem 0;
+            }
+
+            table {
+                font-size: 0.875rem;
+            }
+
+            th, td {
+                padding: 1rem 0.5rem;
             }
         }
     </style>
